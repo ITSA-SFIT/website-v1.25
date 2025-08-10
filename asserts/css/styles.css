@@ -377,7 +377,7 @@
     justify-content: center;
     align-items: center; */
   
-  #events {
+  /* #events {
   background-image: linear-gradient(90deg, transparent, var(--red));
   display: flex;
   height: 90vh;
@@ -385,10 +385,10 @@
   align-items: center;
   padding: 2rem 0;
   color: white;
-}
+} */
 
 /* Large Rectangle 3D Icon Cards Layout */
-.icon-cards {
+/* .icon-cards {
   position: relative;
   width: 100vw;
   height: 48vw;
@@ -406,10 +406,10 @@
   transform-origin: center;
   transform-style: preserve-3d;
   animation: carousel 15s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
+} */
 
 /* Rectangle event cards */
-.icon-cards__item {
+/* .icon-cards__item {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 65vw;
@@ -446,27 +446,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* 5-card positions for bigger translateZ */
-.icon-cards__item:nth-child(1)  { transform: rotateY(0deg) translateZ(36vw); }
+/* .icon-cards__item:nth-child(1)  { transform: rotateY(0deg) translateZ(36vw); }
 .icon-cards__item:nth-child(2)  { transform: rotateY(72deg) translateZ(36vw); }
 .icon-cards__item:nth-child(3)  { transform: rotateY(144deg) translateZ(36vw); }
 .icon-cards__item:nth-child(4)  { transform: rotateY(216deg) translateZ(36vw); }
-.icon-cards__item:nth-child(5)  { transform: rotateY(288deg) translateZ(36vw); }
+.icon-cards__item:nth-child(5)  { transform: rotateY(288deg) translateZ(36vw); } */
 
 /* Animation sequence for 5 cards */
-@keyframes carousel {
+/* @keyframes carousel {
   0%, 15%   { transform: translateZ(-36vw) rotateY(0deg); }
   20%, 35%  { transform: translateZ(-36vw) rotateY(-72deg); }
   40%, 55%  { transform: translateZ(-36vw) rotateY(-144deg); }
   60%, 75%  { transform: translateZ(-36vw) rotateY(-216deg); }
   80%, 95%  { transform: translateZ(-36vw) rotateY(-288deg); }
   100%      { transform: translateZ(-36vw) rotateY(-360deg); }
-}
+} */
 
 /* Responsive for mobile/tablet */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .icon-cards,
   .icon-cards__item {
     width: 96vw;
@@ -495,7 +495,178 @@
     80%, 95%  { transform: translateZ(-44vw) rotateY(-288deg); }
     100%      { transform: translateZ(-44vw) rotateY(-360deg); }
   }
+} */
+/* EVENTS section */
+#events {
+  background-image: linear-gradient(90deg, transparent, var(--red));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
 }
+
+/* ------- ICON CARDS 3D LAYOUT ------- */
+.icon-cards {
+  position: relative;
+  width: 60vw;
+  height: 40vw;
+  max-width: 380px;
+  max-height: 250px;
+  margin: 0 auto;
+  color: white;
+  perspective: 1000px;
+  transform-origin: center;
+}
+
+.icon-cards__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: translateZ(-30vw) rotateY(0);
+  animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.icon-cards__content.step-animation {
+  animation: carousel 8s infinite steps(1) forwards;
+}
+
+/* ------- Individual Event Cards ------- */
+.icon-cards__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  height: 40vw;
+  max-width: 380px;
+  max-height: 250px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000; /* fallback if image doesn't load */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transform-origin: center;
+}
+
+.icon-cards__item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.icon-cards__item h3 {
+  margin: 0.8rem 0;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* Positioning for rotation */
+
+.icon-cards__item:nth-child(1)  { transform: rotateY(0deg) translateZ(36vw); }
+.icon-cards__item:nth-child(2)  { transform: rotateY(72deg) translateZ(36vw); }
+.icon-cards__item:nth-child(3)  { transform: rotateY(144deg) translateZ(36vw); }
+.icon-cards__item:nth-child(4)  { transform: rotateY(216deg) translateZ(36vw); }
+.icon-cards__item:nth-child(5)  { transform: rotateY(288deg) translateZ(36vw); }
+
+/* ------- 3D Carousel Animation ------- */
+@keyframes carousel {
+  0%, 15%   { transform: translateZ(-36vw) rotateY(0deg); }
+  20%, 35%  { transform: translateZ(-36vw) rotateY(-72deg); }
+  40%, 55%  { transform: translateZ(-36vw) rotateY(-144deg); }
+  60%, 75%  { transform: translateZ(-36vw) rotateY(-216deg); }
+  80%, 95%  { transform: translateZ(-36vw) rotateY(-288deg); }
+  100%      { transform: translateZ(-36vw) rotateY(-360deg); }
+}
+
+/* ------- Toggle Animation Checkbox ------- */
+.checkbox {
+  position: relative;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F47956;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+.checkbox:hover {
+  color: #F7A95A;
+}
+.checkbox__checkbox {
+  position: relative;
+  top: 0;
+  width: 1.0625rem;
+  height: 1.0625rem;
+  background: white;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.checkbox__checkbox::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 11px;
+  opacity: 0;
+  transform: rotate(45deg) scale(0);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transition: all 0.3s ease;
+  transition-delay: 0.15s;
+}
+.checkbox__label {
+  margin-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Checked State */
+.checkbox > input:checked ~ .checkbox__checkbox {
+  border-color: transparent;
+  background: #F47956;
+  animation: jelly 0.6s ease;
+}
+.checkbox > input:checked ~ .checkbox__checkbox::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+/* Jelly Animation */
+@keyframes jelly {
+  from { transform: scale(1); }
+  30% { transform: scale(1.25, 0.75); }
+  40% { transform: scale(0.75, 1.25); }
+  50% { transform: scale(1.15, 0.85); }
+  65% { transform: scale(0.95, 1.05); }
+  75% { transform: scale(1.05, 0.95); }
+  to { transform: scale(1); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .icon-cards {
+    width: 80vw;
+    height: 55vw;
+  }
+  .icon-cards__item {
+    width: 80vw;
+    height: 55vw;
+  }
+  .icon-cards__item img {
+    height: 70%;
+  }
+}
+
   /* Team */
   .member-name {
   font-size: 1.6rem;
