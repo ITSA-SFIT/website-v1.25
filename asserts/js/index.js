@@ -133,3 +133,32 @@ particlesJS("particles-js", {
   },
   retina_detect: true,
 });
+ const items = document.querySelectorAll('.gallery-item');
+  let currentIndex = 0;
+  const totalItems = items.length;
+
+  function setActive(index) {
+    items.forEach((item, i) => {
+      if(i === index) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  function next() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    setActive(currentIndex);
+  }
+
+  // Initial activation
+  setActive(currentIndex);
+
+  // Auto slide every 3 seconds
+  let interval = setInterval(next, 3000);
+
+  // Pause auto-slide on hover, resume on leave
+  const gallery = document.getElementById('gallery');
+  gallery.addEventListener('mouseenter', () => clearInterval(interval));
+  gallery.addEventListener('mouseleave', () => interval = setInterval(next, 2000));
