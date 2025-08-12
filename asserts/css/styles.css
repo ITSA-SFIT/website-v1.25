@@ -540,7 +540,7 @@
   .caption {
     position: absolute;
     bottom: 50px;
-    left: 40%;
+    left: 30%;
     color: rgb(253, 251, 251);
     font-weight: bold;
     text-shadow: 2px 5px 3px #d60c0c6a;
@@ -552,7 +552,7 @@
   
 @media (max-width: 800px) {
   .event-card img {
-    height: 280px;     /* Smaller height for mobile */
+    height: 200px;     /* Smaller height for mobile */
 }
 }
 
