@@ -563,9 +563,9 @@
   border-radius: 5px;
 }
 
-@media (max-width: 890px) {
+@media (max-width: 800px) {
   .event-card img {
-    height: 100px; /* Smaller height for mobile */
+    height: 150px; /* Smaller height for mobile */
   }
 }
 
