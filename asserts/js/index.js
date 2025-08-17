@@ -162,3 +162,4 @@ particlesJS("particles-js", {
   const gallery = document.getElementById('gallery');
   gallery.addEventListener('mouseenter', () => clearInterval(interval));
   gallery.addEventListener('mouseleave', () => interval = setInterval(next, 2000));
+  

@@ -510,14 +510,74 @@
   background-image: linear-gradient(90deg, transparent, var(--red));
 }
 
+/* This is your original desktop code. No changes needed. */
+Based on your request, here is the full code to achieve a vertical, expanding gallery on mobile and a horizontal, expanding gallery on desktop.
+
+HTML
+The HTML structure remains the same as before.
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Item+1" alt="Gallery Item 1">
+    <span class="caption">Event 1</span>
+  </div>
+  <div class="gallery-item active">
+    <img src="https://via.placeholder.com/600x400/C70039/FFFFFF?text=Item+2" alt="Gallery Item 2">
+    <span class="caption">Event 2</span>
+  </div>
+  <div class="gallery-item">
+    <img src="https://via.placeholder.com/600x400/900C3F/FFFFFF?text=Item+3" alt="Gallery Item 3">
+    <span class="caption">Event 3</span>
+  </div>
+  <div class="gallery-item">
+    <img src="https://via.placeholder.com/600x400/581845/FFFFFF?text=Item+4" alt="Gallery Item 4">
+    <span class="caption">Event 4</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+CSS (style.css)
+This CSS file contains the logic to handle both views using media queries. The key is to change the flex direction and image height inside the mobile-specific media query.
+
+CSS
+
+:root {
+  --red: #FF0000;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+}
+
+#events {
+  background-image: linear-gradient(90deg, transparent, var(--red));
+}
+
+/* Base and Desktop Styles */
 .gallery {
   display: flex;
   width: 100%;
   max-width: 1200px;
   overflow: hidden;
-  gap: 15px; /* space between boxes */
-  margin-left: auto;
-  margin-right: auto;
+  gap: 15px;
+  margin: 0 auto;
 }
 
 .gallery-item {
@@ -527,8 +587,8 @@
   transition: flex-grow 0.7s ease, box-shadow 0.3s ease;
   position: relative;
   border-radius: 10px;
-  background: #fff; /* box background */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* box shadow */
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-item img {
@@ -537,12 +597,12 @@
   object-fit: cover;
   transition: transform 0.7s ease;
   display: block;
-  border-radius: 10px 10px 0 0; /* rounded only top corners */
+  border-radius: 10px 10px 0 0;
 }
 
 .gallery-item.active {
   flex-grow: 4;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* bigger shadow */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-item.active img {
@@ -557,19 +617,48 @@
   color: #fff;
   font-weight: bold;
   font-size: 1.5rem;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-  background: rgba(0, 0, 0, 0.4); /* dark semi-transparent bg */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
   border-radius: 5px;
+  white-space: nowrap;
 }
 
+/* Mobile-Specific Styles */
 @media (max-width: 1000px) {
-  .event-card img {
-    height: 50px; /* Smaller height for mobile */
+  .gallery {
+    flex-direction: column; /* Stacks items vertically */
+    height: 100%;
+    max-height: 800px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    -webkit-overflow-scrolling: touch;
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .gallery-item {
+    flex: 1 1 auto;
+    width: auto;
+  }
+  
+  .gallery-item img {
+    height: 150px; /* Adjust height for mobile */
+    border-radius: 10px 10px 0 0;
+  }
+
+  .gallery-item.active {
+    flex-grow: 4; /* Maintains the expanding effect */
+  }
+
+  .gallery-item.active img {
+    transform: scale(1.1); /* Maintains the zoom effect */
+  }
+
+  .caption {
+    font-size: 1rem;
+    white-space: normal; /* Allows caption to wrap */
   }
 }
-
-
 
   /* Team */
   .member-name {
