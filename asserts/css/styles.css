@@ -533,7 +533,7 @@
 
 .gallery-item img {
   width: 100%;
-  height: 320px;
+  height: 350px;
   object-fit: cover;
   transition: transform 0.7s ease;
   display: block;
@@ -563,9 +563,9 @@
   border-radius: 5px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .event-card img {
-    height: 150px; /* Smaller height for mobile */
+    height: 100px; /* Smaller height for mobile */
   }
 }
 
