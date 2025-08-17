@@ -107,13 +107,13 @@ particlesJS("particles-js", {
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 600,
         line_linked: {
           opacity: 0.4334598272703483,
         },
       },
       bubble: {
-        distance: 400,
+        distance: 600,
         size: 40,
         duration: 2,
         opacity: 8,
