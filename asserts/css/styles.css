@@ -717,8 +717,8 @@ border-radius: 5px;
 
   /* Team */
   .member-name {
-  font-size: 6rem;
-  font-weight: 1500;
+  font-size: 8rem;
+  font-weight: 600px;
   font-family:var(--roboto);
   color: #ffffff; /* Strong accent color */
   letter-spacing: 2px;
@@ -733,7 +733,7 @@ border-radius: 5px;
   display: block;
   width: 32px;
   height: 3px;
-  background: linear-gradient(90deg, #510a72 40%, #75b3ff 100%);
+  /* background: linear-gradient(90deg, #510a72 40%, #75b3ff 100%); */
   margin: 8px auto 0 auto;
   border-radius: 3px;
 }
@@ -746,13 +746,13 @@ border-radius: 5px;
 
 .member-post {
   font-size: 1.1rem;
-  font-weight: 400;
-  color: #333;
+  font-weight: 200;
+  color: #df1f1f;
   opacity: 0.7;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 0px;
 }
 
 /* Fade-in and move up animation */
@@ -766,7 +766,8 @@ border-radius: 5px;
   }
   #team .team-title {
     text-align: center;
-    letter-spacing: 10px;
+    letter-spacing: 0.5px;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     font-family: var(--monospace);
   }
@@ -778,7 +779,7 @@ border-radius: 5px;
   } */
   #team .member-container .member-name {
     font-size: 1.7rem;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     margin-top: 1rem;
   }
@@ -788,7 +789,7 @@ border-radius: 5px;
     color: rgb(206, 206, 206);
   }
   #team .team-member.col-3 {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
   
   #team .team-img-container {
@@ -924,6 +925,29 @@ border-radius: 5px;
       rgba(232, 10, 114, 0.6)
     );
   }
+  @media (max-width: 768px) {
+  .team-img-container {
+    padding: 0 2rem;      /* reduced padding */
+    margin-bottom: 2rem;  /* smaller gap below */
+}
+#team .team-title{
+  font: 3rem;
+}
+
+#team .member-container .member-name {
+   margin-top: 0; 
+   font-size: 2rem;
+}
+#team .member-container .member-post {
+   margin-top: 0;
+   font-size: 2rem;
+}
+#team .team-member.col-3 {
+    padding: 1rem 0;
+    gap: 15px;
+  }
+
+}
   
   /* Contact */
   #contact {
